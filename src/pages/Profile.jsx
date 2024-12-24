@@ -71,7 +71,7 @@ export default function () {
           />
           <div
             id={`slider`}
-            className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide"
+            className="w-full h-full overflow-x-hiden whitespace-nowrap scroll-smooth scrollbar-hide"
           >
             {movies.map((movie) => (
               <div
