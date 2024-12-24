@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Signup() {
   const [remembeLogin, setRememberLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { currentUser, signUp } = useAuth();
+  const navigate = useNavigate();
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log("Email: ", email);
-    console.log("Password:", password);
+    try {
+      await signUp(email, password);
+      navigate("/");
+    } catch (error) {
+      console.log("Error: ", error);
+    }
   };
 
   return (
@@ -28,7 +35,10 @@ export default function Signup() {
           <div className="max-w-[320px] mx-auto py-16">
             <h1 className="text-3xl font-nsans-Bold">Sign Up</h1>
 
-            <form className="w-full flex flex-col py-4" onSubmit={handleFormSubmit}>
+            <form
+              className="w-full flex flex-col py-4"
+              onSubmit={handleFormSubmit}
+            >
               <input
                 className="p-3 my-2 bg-gray-700 rounded"
                 type="email"
