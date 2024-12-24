@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { auth, db } from "../services/firebase"; // Make sure to configure Firebase
+import { setDoc, doc } from "firebase/firestore";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -24,6 +25,7 @@ export const AuthContextProvider = ({ children }) => {
 
   function signUp(email, password) {
     createUserWithEmailAndPassword(auth, email, password);
+    setDoc(doc(db, "users", email), { favShows: [] });
   }
 
   function logIn(email, password) {
