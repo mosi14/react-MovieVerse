@@ -1,9 +1,18 @@
-import React from 'react'
+import endpoints from "../services/movieServices"
+import Hero from "../components/Hero";
+import MovieRow from "../components/MovieRow";
+
 
 export default function Home() {
+
   return (
-    <div>
-      home
-    </div>
-  )
+    <>
+      <Hero />
+      <MovieRow title="upcoming" url={endpoints.upcoming} />
+      <MovieRow title="trending" url={endpoints.trending} />
+      <MovieRow title="top rated" url={endpoints.topRated} />
+      <MovieRow title="comedy" url={endpoints.comedy} />
+      <MovieRow title="popular" url={endpoints.popular} />
+    </>
+  );
 }
