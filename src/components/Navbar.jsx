@@ -11,7 +11,7 @@ function Navbar() {
       </Link>
       <div>
         <Link to="/login">
-          <button className="bg-red-600 text-white px-4 py-2 rounded cursor-pointer capitalize">
+          <button className=" text-white px-4 py-2  cursor-pointer capitalize">
             Login
           </button>
         </Link>
