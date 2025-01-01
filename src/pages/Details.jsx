@@ -168,7 +168,7 @@ export default function Details() {
 
             {/* Video */}
             <div>
-              <p className=" font-nsans-bold text-gray-400 text-md pr-2 ">
+              <p className=" font-nsans-bold text-gray-400 text-md pr-2 my-4 ">
                 Video:
               </p>
               <div className="">
