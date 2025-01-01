@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 import { useAuth } from "../context/AuthContext";
@@ -71,7 +72,7 @@ export default function () {
           />
           <div
             id={`slider`}
-            className="w-full h-full overflow-x-hiden whitespace-nowrap scroll-smooth scrollbar-hide"
+             className="w-full h-full overflow-x-hiden overflow-hidden whitespace-nowrap scroll-smooth scrollbar-hide"
           >
             {movies.map((movie) => (
               <div
@@ -88,7 +89,7 @@ export default function () {
                 />
                 <div className="absolute top-0 left-0 w-full h-40 bg-black/80 opacity-0 hover:opacity-100">
                   <p className="whitespace-normal text-xs md:text-sm flex justify-center items-center h-full font-nsans-Bold">
-                    {movie.title}
+                  <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
                   </p>
                   <p>
                     <AiOutlineClose
